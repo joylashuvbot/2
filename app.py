@@ -3022,7 +3022,12 @@ async def main():
                 # Initial yuklagandan so'ng darhol GitHub ga ham saqlaymiz
                 if PLACES:
                     await backup_to_github(PLACES)
-        
+        else:
+            # Bazada allaqachon ma'lumot bor, uni GitHub bilan sinxronlashtiramiz
+            print("🔄 Bazada ma'lumot bor, GitHub ga push qilinmoqda...")
+            if PLACES:
+                await backup_to_github(PLACES)
+
         # PLACES formatini moslashtirish (id kalitini qo'shish)
         for i, place in enumerate(PLACES):
             if 'id' not in place:
